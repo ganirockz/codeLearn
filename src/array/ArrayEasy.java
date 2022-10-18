@@ -183,4 +183,78 @@ public class ArrayEasy {
 		
 		System.out.println("Missing Number: "+ miss);
 	}
+	
+	// arr = {1,0,1,1,0}
+	public void mostConsequentOnes(int[] arr) {
+		int max =0;
+		int n = arr.length;
+		int count = 0;
+		for(int i=0;i<n;i++) {
+			if(arr[i] == 1) {
+				count++;
+			}else {
+				if(count > max) {
+					max = count;
+				}
+				count =0;
+			}
+		}
+		
+		System.out.println(max);
+	}
+	
+	public void numberThatAppearOnce(int[] arr) {
+		int n= arr.length;
+		int k= -1;
+		for(int i=0;i<n;i++) {
+			int count =0;
+			for(int j=0;j<n;j++) {
+				if(i != j) {
+					if(arr[i] == arr[j]) {
+						count++;
+					}
+				}
+			}
+			if(count == 0) {
+				k = arr[i];
+				break;
+			}
+		}
+		
+		System.out.println(k);
+	}
+	
+	// Note: never use break statements, it will take much time.
+	// insted use conditions effectively
+	
+	public int longestSubArrayWithGivenSum(int[] arr,int k) {
+		//naive solution
+		int maxLength = 0;
+		for(int i=0;i<arr.length;i++) {
+			int sum =0;
+			for(int j=i;j<arr.length;j++) {					
+				sum += arr[j];
+				if(sum == k) {
+					maxLength = Math.max(maxLength, j-i+1);
+				}
+			}
+		}
+		
+		// optimal solution
+		
+//		int n = arr.length;
+//		int start = 0, end = -1, sum = 0, maxLength = 0;
+//	    while (start < n) {
+//	      while ((end + 1 < n) && (sum + arr[end + 1] <= k))
+//	        sum += arr[++end];
+//
+//	      if (sum == k)
+//	        maxLength = Math.max(maxLength, (end - start + 1));
+//
+//	      sum -= arr[start];
+//	      start++;
+//	    }
+		
+		return maxLength;
+	}
 }
