@@ -8,10 +8,15 @@ public class ArrayMain {
 		int[] arr2 = {1,1,2,2,3,4,4};
 		int[] arr3 = {1,0,1,1,0};
 		int[] arr4 = {8,6,1,2,4,4};
+		int[] arr5 = {2,0,2,1,1,0};
+		int nums[] = {2,2,1,1,1,2,2};
+		int ans[] = {0,0,2,3};
 		
 		long start_time = System.nanoTime();
 		
-		ArrayEasy easy = new ArrayEasy();
+		//ArrayEasy easy = new ArrayEasy();
+		ArrayMedium medium = new ArrayMedium();
+		
 		//System.out.println(easy.largestInArray(arr));
 		//System.out.println(easy.secondLargestArray(arr));
 		
@@ -24,7 +29,18 @@ public class ArrayMain {
 		//easy.missingNumber(arr2);
 		//easy.mostConsequentOnes(arr3);
 		//easy.numberThatAppearOnce(arr2);
-		System.out.println(easy.longestSubArrayWithGivenSum(arr4, 7));
+		//System.out.println(easy.longestSubArrayWithGivenSum(arr4, 7));
+		//medium.elementsWithGivenSum(arr4,7);
+		
+		//medium.sortZerosOnesTwos(arr5);
+		
+		//System.out.println(medium.majorityElementThatRepeats(nums)); 
+		//System.out.println(medium.canWeContinue(ans));
+		System.out.println(medium.isDSame(ans));
+		for(int i=0;i<ans.length;i++) {
+        	System.out.print(ans[i]+" ");
+        }
+		
 		
 		long end_time = System.nanoTime();
 		
