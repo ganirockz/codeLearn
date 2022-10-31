@@ -236,4 +236,127 @@ public class ArrayMedium {
         
         return true;
     }
+	
+	public int kadaneProb(int[] arr) {
+		
+		
+		//Naive Approach TC: O(n^3), SC: O(1)
+//		-1
+//
+//		Total Execution time: 98ms
+		
+		int n = arr.length;
+		
+		int sum = Integer.MIN_VALUE;
+		
+		//Naive approach
+//		for(int i=1;i<=n;i++) {
+//			for(int j=0;j+i<=n;j++) {
+//				int currentSum = 0;
+//				for(int k=j;k<j+i;k++) {
+//					currentSum += arr[k];
+//				}
+//				if(currentSum> sum) {
+//					sum = currentSum;
+//				}
+//			}
+//		}
+		
+		
+		//Better Approach TC: O(n^2) SC: O(1)
+//		-1
+//
+//		Total Execution time: 95ms
+//		for(int i=0;i<n;i++) {
+//			int currentSum = 0;
+//			for(int j=i;j<n;j++) {
+//				currentSum += arr[j];
+//				if(currentSum>sum) {
+//					sum = currentSum;
+//				}
+//			}
+//		}
+		
+		
+		//Best Approach TC:O(n) SC:O(1)
+		//Kadane's algorithm - Most important
+		int meh = 0;
+		for(int i=0;i<n;i++) {
+			meh += arr[i];
+			if(meh>sum) {
+				sum = meh;
+			}
+			
+			if(meh<0) {
+				meh = 0;
+			}
+		}
+		
+		return sum;
+	}
+	
+	public void maxSubArray(int[] arr) {
+		int n = arr.length;
+		int sum = Integer.MIN_VALUE;
+		int meh = 0;
+		int start = 0;
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		
+		for(int i=0;i<n;i++) {
+			meh += arr[i];
+			if(meh>sum) {
+				sum = meh;
+				list.clear();
+				list.add(start);
+				list.add(i);
+			}
+			
+			
+			if(meh <0) {
+				meh = 0;
+				start = i+1;
+			}
+		}
+		
+		
+		for(int i=list.get(0);i<=list.get(1);i++) {
+			System.out.print(arr[i]+" ");
+		}
+		System.out.println("\nMax Sum: "+sum);
+	}
+	
+	public int stockBuyAndSell(int[] arr) {
+		int n= arr.length;
+		//int profit = Integer.MIN_VALUE;
+		
+		//Naive Approach TC:O(n^2) SC:O(1)
+//		for(int i=0;i<n;i++) {
+//			for(int j=i+1;j<n;j++) {
+//				if((arr[j]-arr[i]) > profit ) {
+//					profit = arr[j]-arr[i];
+//				}
+//			}
+//		}
+		
+		
+		//Optimal Solution TC:O(n) SC: O(1)
+		//Most important for logic building
+		int profit = 0;
+		
+		int min = Integer.MAX_VALUE;
+		
+		for(int i=0;i<n;i++) {
+			if(arr[i] < min) {
+				min = arr[i];
+			}
+			if(arr[i]-min>profit) {
+				profit = arr[i]-min;
+			}
+		}
+		
+		
+		
+		return profit>0? profit: 0;
+		
+	}
 }

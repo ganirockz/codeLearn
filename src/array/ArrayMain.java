@@ -10,7 +10,8 @@ public class ArrayMain {
 		int[] arr4 = {8,6,1,2,4,4};
 		int[] arr5 = {2,0,2,1,1,0};
 		int nums[] = {2,2,1,1,1,2,2};
-		int ans[] = {0,0,2,3};
+		int ans[] = {-1,-2,-3,-4};
+		int arr6[] = {-2,1,-3,4,-1,2,1,-5,4};
 		
 		long start_time = System.nanoTime();
 		
@@ -36,11 +37,17 @@ public class ArrayMain {
 		
 		//System.out.println(medium.majorityElementThatRepeats(nums)); 
 		//System.out.println(medium.canWeContinue(ans));
-		System.out.println(medium.isDSame(ans));
-		for(int i=0;i<ans.length;i++) {
-        	System.out.print(ans[i]+" ");
-        }
+//		System.out.println(medium.isDSame(ans));
+//		for(int i=0;i<ans.length;i++) {
+//        	System.out.print(ans[i]+" ");
+//        }
 		
+		//System.out.println(medium.kadaneProb(ans)); 
+		int[] stock = {7,1,5,3,6,4};
+		
+		//medium.maxSubArray(ans);
+		
+		System.out.println(medium.stockBuyAndSell(stock));
 		
 		long end_time = System.nanoTime();
 		
