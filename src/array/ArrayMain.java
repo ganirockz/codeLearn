@@ -43,11 +43,29 @@ public class ArrayMain {
 //        }
 		
 		//System.out.println(medium.kadaneProb(ans)); 
-		int[] stock = {7,1,5,3,6,4};
 		
 		//medium.maxSubArray(ans);
+//		int[] stock = {7,1,5,3,6,4};
+//		
+//		System.out.println(medium.stockBuyAndSell(stock));
 		
-		System.out.println(medium.stockBuyAndSell(stock));
+//		int[] posNeg = {-5, -2, 5, 2, 4, 7, 1, 8, 0, -8};
+//		medium.alternativePostiveAndNegative(posNeg);
+		
+//		int[] array = {1,2,3};
+//		
+//		medium.allPermutations(array);
+		
+//		int[] array = {4, 7, 1, 0};
+//		medium.leaders(array);
+		
+//		int[] array = {100,500,1,3,2,4};
+//		
+//		System.out.println(medium.longestConsequentSequence(array)); 
+		
+		int[][] array = {{0,1,2,0},{3,4,5,2},{1,3,1,5}};
+		
+		medium.findAndReplaceZero(array, 3, 4);
 		
 		long end_time = System.nanoTime();
 		

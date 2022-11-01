@@ -359,4 +359,199 @@ public class ArrayMedium {
 		return profit>0? profit: 0;
 		
 	}
+	
+	
+	public void alternativePostiveAndNegative(int[] arr) {
+		
+		//Naive TC: O(2*n) SC:O(2*n)
+		ArrayList<Integer> pos = new ArrayList<Integer>();
+		ArrayList<Integer> neg = new ArrayList<Integer>();
+		int n = arr.length;
+		
+		for(int i=0;i<n;i++) {
+			if(arr[i] >=0) {
+				pos.add(arr[i]);
+			}else {
+				neg.add(arr[i]);
+			}
+		}
+		ArrayList<Integer> ans = new ArrayList<Integer>();
+		
+		int p = pos.size();
+		int ne = neg.size();
+		
+		if(p>=ne) {
+			int i=0;
+			for(i=0;i<ne;i++) {
+				ans.add(pos.get(i));
+				ans.add(neg.get(i));
+			}
+			
+			for(int j=2*ne;j<n && i<n;j++,i++) {
+				ans.add(pos.get(i));
+			}
+		}else {
+			int i=0;
+			for(i=0;i<p;i++) {
+				ans.add(pos.get(i));
+				ans.add(neg.get(i));
+			}
+			
+			for(int j=2*p;j<n && i<n;j++,i++) {
+				ans.add(neg.get(i));
+			}
+		}
+		
+		System.out.println(ans);
+	}
+	
+	public void printAllPermutations(int[] arr,int index, ArrayList<ArrayList<Integer>> ans) {
+		
+		if(index == arr.length) {
+			ArrayList<Integer> ds = new ArrayList<Integer>();
+			for(int i=0;i<arr.length;i++) {
+				ds.add(arr[i]);
+			}
+			ans.add(ds);
+		}
+		
+		for(int i=index;i<arr.length;i++) {
+			swap(index,i,arr);
+			printAllPermutations(arr, index+1, ans);
+			swap(index,i,arr);
+		}
+		
+	}
+	
+	// TC: O(n!*n) SC: O(n)
+//	int[] array = {1,2,3}
+//	[[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]]
+//
+//			Total Execution time: 113ms
+	public void allPermutations(int[] arr) {
+		ArrayList<ArrayList<Integer>> ans = new ArrayList<ArrayList<Integer>>();
+		printAllPermutations(arr, 0, ans);
+		
+		System.out.println(ans);
+		
+	}
+	
+	public void swap(int index,int i,int[] arr) {
+		int temp = arr[i];
+		arr[i] = arr[index];
+		arr[index] = temp;
+	}
+	
+	
+	public void leaders(int[] arr) {
+		
+		// Optimal Solution TC:O(n) SC:O(1)
+		// if we are concerned about order use list or array or stack which makes SC as O(n)
+		int n = arr.length;
+		int msf = arr[n-1];
+//		Stack<Integer> s = new Stack<Integer>();
+//		s.add(msf);
+		System.out.print(msf+" ");
+		for(int i = n-2;i>=0;i--) {
+			if(arr[i] > msf) {
+				//s.add(arr[i]);
+				System.out.print(arr[i]+" ");
+				msf = arr[i];
+			}
+		}
+		
+//		while(s.size() > 0) {
+//			System.out.print(s.pop()+" ");
+//		}
+		
+	}
+	
+	public int longestConsequentSequence(int[] arr) {
+		int n = arr.length;
+		//int min=Integer.MAX_VALUE,max=Integer.MIN_VALUE;
+		HashSet<Integer> hset = new HashSet<Integer>();
+		
+		
+		for(int i=0;i<n;i++) {
+//			if(arr[i]>max) {
+//				max = arr[i];
+//			}
+//			
+//			if(arr[i]<min) {
+//				min = arr[i];
+//			}
+			//hmap.put(arr[i], 1);
+			hset.add(arr[i]);
+		}
+		
+		//int maxLen = Integer.MIN_VALUE;
+		
+		//Better Solution but dependent on min,max values in array. TC: O(max-min) SC:O(n)
+//		int count = 0;
+//		for(int i= min;i <= max;i++) {
+//			if(hmap.get(i) == null) {
+//				if(count > maxLen) {
+//					maxLen = count;
+//				}
+//				count = 0;
+//			}else {
+//				count++;
+//			}
+//		}
+		
+		
+		//Similar to earlier but not dependent on min,max values
+		//Optimal Solution TC: O(n) SC: O(n) 
+		int maxLen = Integer.MIN_VALUE;
+		
+		int count =0;
+		for(int num: arr) {
+			while(hset.contains(num++)) {
+				count++;
+			}
+			
+			if(count > maxLen) {
+				maxLen = count;
+			}
+			count = 0;
+			
+		}
+		
+		return maxLen;
+	}
+	
+	public void findAndReplaceZero(int[][] arr,int m,int n) {
+		HashMap<Integer,Integer> hmap = new HashMap<Integer,Integer>();
+		
+		for(int i=0;i<m;i++) {
+			for(int j=0;j<n;j++) {
+				if(arr[i][j] == 0) {
+					hmap.put(i, j);
+				}
+			}
+		}
+		
+		
+		for (Map.Entry<Integer,Integer> entry : hmap.entrySet()) {			
+			int k = entry.getKey();
+			int v = entry.getValue();
+			
+			for(int i=0;i<n;i++) {
+				arr[k][i] = 0;
+			}
+			for(int i=0;i<m;i++) {
+				arr[i][v] = 0;
+			}
+		}
+		
+		for(int i=0;i<m;i++) {
+			for(int j=0;j<n;j++) {
+				System.out.print(arr[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+	
+	
+	
 }
