@@ -63,9 +63,13 @@ public class ArrayMain {
 //		
 //		System.out.println(medium.longestConsequentSequence(array)); 
 		
-		int[][] array = {{0,1,2,0},{3,4,5,2},{1,3,1,5}};
+		//int[][] array = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
 		
-		medium.findAndReplaceZero(array, 3, 4);
+		//medium.findAndReplaceZero(array, 3, 4);
+		//medium.printMatrixInSpiral(array, 4, 4);
+		int[][] array = {{1,2,3},{4,5,6}};
+		
+		medium.rotateMatrixBy90(array, 2, 3);
 		
 		long end_time = System.nanoTime();
 		

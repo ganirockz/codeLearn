@@ -553,5 +553,69 @@ public class ArrayMedium {
 	}
 	
 	
+	// Watch this Video: https://www.youtube.com/watch?v=1ZGJzvkcLsA&ab_channel=TECHDOSE
+	// TC: O(m*n)
+	public void printMatrixInSpiral(int[][] arr,int m, int n) {
+		int top = 0,down = m-1,left=0,right=n-1;
+		int d =0;
+		while(top <= down && left <= right) {
+			d = d%4;
+			
+			if(d == 0) {
+				for(int i=left;i<=right;i++) {
+					System.out.print(arr[top][i]+" ");
+				}
+				top +=1;
+			}
+			
+			if(d == 1) {
+				for(int i=top;i<=down;i++) {
+					System.out.print(arr[i][right]+" ");
+				}
+				right -=1;
+			}
+			
+			if(d == 2) {
+				for(int i=right;i>=left;i--) {
+					System.out.print(arr[down][i]+" ");
+				}
+				down -=1;
+			}
+			
+			if(d == 3) {
+				for(int i=down;i>=top;i--) {
+					System.out.print(arr[i][left]+" ");
+				}
+				left += 1;
+			}
+			
+			d++;
+		}
+		
+	}
+	
+	
+	public void rotateMatrixBy90(int[][] arr,int m,int n) {
+		// TC: O(m*n) SC: O(n*m)
+		int[][] ans = new int[n][m];
+		
+		for(int i=0;i<n;i++) {
+			for(int j=m-1;j>=0;j--) {
+				ans[i][j] = arr[m-1-j][i];
+			}
+		}
+		
+		for(int i=0;i<n;i++) {
+			for(int j=0;j<m;j++) {
+				System.out.print(ans[i][j]+" ");
+			}
+			System.out.println();
+		}
+		
+		
+		
+	}
+	
+	
 	
 }
