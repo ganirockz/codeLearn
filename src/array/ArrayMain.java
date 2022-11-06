@@ -43,11 +43,13 @@ public class ArrayMain {
 //        }
 		
 		//System.out.println(medium.kadaneProb(ans)); 
-		int[] stock = {7,1,5,3,6,4};
+		//int[] stock = {7,1,5,3,6,4};
 		
 		//medium.maxSubArray(ans);
 		
-		System.out.println(medium.stockBuyAndSell(stock));
+		//System.out.println(medium.stockBuyAndSell(stock));
+		int[] array= {5,4,3,2,1};
+		System.out.println(medium.countInversions(array));
 		
 		long end_time = System.nanoTime();
 		
@@ -55,5 +57,6 @@ public class ArrayMain {
 		
 		System.out.println("\nTotal Execution time: "+ duration+"ms");
 	}
+	
 
 }
