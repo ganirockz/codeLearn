@@ -133,6 +133,7 @@ public class GeeksWeeklyContest {
 		if(index >= n) {
 			return true;
 		}
+		// syso
 		
 		for(int i=0;i<arr.size();i++) {
 			if(arr.get(i) != prev) {
