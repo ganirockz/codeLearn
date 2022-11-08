@@ -16,7 +16,8 @@ public class ArrayMain {
 		long start_time = System.nanoTime();
 		
 		//ArrayEasy easy = new ArrayEasy();
-		ArrayMedium medium = new ArrayMedium();
+		//ArrayMedium medium = new ArrayMedium();
+		ArrayHard hard = new ArrayHard();
 		
 		//System.out.println(easy.largestInArray(arr));
 		//System.out.println(easy.secondLargestArray(arr));
@@ -67,9 +68,34 @@ public class ArrayMain {
 		
 		//medium.findAndReplaceZero(array, 3, 4);
 		//medium.printMatrixInSpiral(array, 4, 4);
-		int[][] array = {{1,2,3},{4,5,6}};
+		//int[][] array = {{1,2,3},{4,5,6}};
 		
-		medium.rotateMatrixBy90(array, 2, 3);
+		//medium.rotateMatrixBy90(array, 2, 3);
+//		int n= 5;
+//		hard.printPascalTriangle(n);
+		//int[] array = {1,2,4,3,1};
+		
+		//hard.elementsGreaterThanNby3(array);
+		//String[] strArr = {"WXYZ","XYZW","WYXZ"};
+		
+		
+		//hard.rankTeamsByVotes(strArr);
+		
+//		int[] nums1 = {4,1,2};
+//		int[] nums2 = {1,3,4,2};
+//		
+//		hard.nextGreaterElement(nums1, nums2);
+		
+//		int[] array = {3,1,2,5,3};
+//		hard.repeatingAndMissig(array);
+		
+//		int[] arr1= {1,4,8,10};
+//		int[] array2= {2,3,9};
+//		hard.mergeTwoArraysWithoutExtraSpace(arr1, array2);
+		
+		int[] array= {-1,0,1,2,-1,-4};
+		
+		hard.tripletsWithZeroSum(array);
 		
 		long end_time = System.nanoTime();
 		
